@@ -1,5 +1,5 @@
  - hosts: localhost 
-   user: root
+   become: yes
    tasks:
    - name: Comment line
      ansible.builtin.replace:
@@ -22,7 +22,6 @@
 
  
    - name: network restart
-     #become: yes
      ansible.builtin.service:
        name: networkd
        state: restarted
