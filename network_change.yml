@@ -1,7 +1,8 @@
  - hosts: localhost
-   connection: local
+ #  connection: local
    become: yes
    tasks:
+   delegate_to: localhost
    - name: Comment line
      ansible.builtin.replace:
        path: /etc/sysconfig/network-scripts/ifcfg-eth0
