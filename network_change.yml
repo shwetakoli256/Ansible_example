@@ -2,8 +2,9 @@
  #  connection: local
    become: yes
    tasks:
-   delegate_to: localhost
+   
    - name: Comment line
+     delegate_to: localhost
      ansible.builtin.replace:
        path: /etc/sysconfig/network-scripts/ifcfg-eth0
        #get the string to search for comment
