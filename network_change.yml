@@ -1,0 +1,28 @@
+ - hosts: localhost 
+   user: root
+   tasks:
+   - name: Comment line
+     ansible.builtin.replace:
+       path: /etc/sysconfig/network-scripts/ifcfg-eth0
+       #get the string to search for comment
+       regexp: '^[^#](.*IPADDR.*|.*NETMASK.*)'
+       #comment out the line
+       replace: '# \1'
+       backup: yes
+  
+   - name: replace word
+     ansible.builtin.replace:
+       path: /etc/sysconfig/network-scripts/ifcfg-eth0
+       #get the string to search for replace
+       after: 'BOOTPROTO='
+       before: '\n'
+       regexp: '.*'
+       replace: 'dhcp'
+       backup: yes
+
+ 
+   - name: network restart
+     #become: yes
+     ansible.builtin.service:
+       name: networkd
+       state: restarted
