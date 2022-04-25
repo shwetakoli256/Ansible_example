@@ -1,4 +1,5 @@
- - hosts: localhost 
+ - hosts: 
+   localhost 
    become: yes
    tasks:
    - name: Comment line
