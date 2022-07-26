@@ -1,0 +1,8 @@
+---
+- name: Demo scripts
+  hosts: localhost
+  vars:
+      sites: ['Danfoss','FTC','pcaas','Fab0']
+
+  roles: 
+    - example1

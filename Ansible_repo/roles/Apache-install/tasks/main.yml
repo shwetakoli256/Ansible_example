@@ -1,0 +1,22 @@
+---
+- block:
+     - name: Install Apache package
+       yum: 
+         name: httpd
+         state: present
+    
+     - name: ensure httpd is running
+       ansible.builtin.service:
+         name: httpd 
+         state: started
+
+     - name: open port 80 for http access
+       firewalld:
+         service: http
+         permanent: true
+         state: enabled
+
+     - name: Restart firewalld service to load the firewall changes
+       ansible.builtin.service:
+         name: firewalld
+         state: restarted

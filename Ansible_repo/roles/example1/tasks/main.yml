@@ -1,0 +1,8 @@
+
+---
+  - name: Loop example
+    template: 
+       src: for.loop.j2
+       dest: /home/shweta/file
+  
+   
