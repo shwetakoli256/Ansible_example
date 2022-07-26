@@ -1,0 +1,9 @@
+---
+- block:
+       vars: 
+         ansible_workflow_dir: 'variable'
+         version_number: '5.2.10'
+     - name: echo current directory
+       ansible.builtin.debug:
+         msg: "{{ ansible_working_dir }} is current working directory"
+       when:  ansible_working_dir is defined 

@@ -1,0 +1,9 @@
+---
+- name: Get the current working dir
+  shell: pwd
+  register: cwd
+  delegate_to: localhost
+
+- set_fact:
+    ansible_working_dir: "{{ cwd.stdout }}"
+

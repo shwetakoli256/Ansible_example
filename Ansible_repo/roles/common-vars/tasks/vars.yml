@@ -1,0 +1,6 @@
+---
+ - block:
+    - name: storing variables
+      vars:
+         ansible_working_dir: variable
+
